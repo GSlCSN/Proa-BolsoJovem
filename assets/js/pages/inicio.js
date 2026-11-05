@@ -1,7 +1,7 @@
 // =============================================================
 // BOLSO JOVEM - Página Início
 // Mostra o saldo calculado a partir das movimentações salvas.
-// Usa funções de src/dados.js.
+// Usa funções de assets/js/dados.js.
 // =============================================================
 
 const saldoValor = document.getElementById("saldo-valor");

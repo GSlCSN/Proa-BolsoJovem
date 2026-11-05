@@ -1615,7 +1615,7 @@ html[data-tema="escuro"] .jornada h2 { color: #9db9ff; }
    O site ocupa exatamente a largura e a altura da janela, sem barras.
    Os espaços usam clamp(mínimo, ideal, máximo): o valor "ideal" em vh
    (% da altura da janela) faz tudo encolher em telas mais baixas.
-   --zoom vem de src/config.js (opção "Tamanho do texto"). */
+   --zoom vem de assets/js/config.js (opção "Tamanho do texto"). */
 body {
   height: calc(100vh / var(--zoom, 1));
   overflow: hidden;

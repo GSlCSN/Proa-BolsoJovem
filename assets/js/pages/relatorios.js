@@ -2,7 +2,7 @@
 // BOLSO JOVEM - Página Relatórios
 // Monta o resumo, o gráfico de barras e a pizza de categorias
 // do mês atual, a partir das movimentações salvas.
-// Usa funções de src/dados.js.
+// Usa funções de assets/js/dados.js.
 // =============================================================
 
 const doMes = doMesAtual(carregarMovimentacoes());

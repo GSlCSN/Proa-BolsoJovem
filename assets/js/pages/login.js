@@ -28,7 +28,7 @@ formLogin.addEventListener("submit", function (evento) {
   // Se for e-mail, usa só a parte antes do @ como nome.
   const nome = usuario.split("@")[0];
   localStorage.setItem("bolsoJovem.usuario", nome);
-  window.location.href = "index.html";
+  window.location.href = "inicio.html";
 });
 
 // Mostrar/esconder senha trocando o type do input.
@@ -46,5 +46,5 @@ botaoVerSenha.addEventListener("click", function () {
 // "Entrar com Google" também é só demonstração.
 document.getElementById("btn-google").addEventListener("click", function () {
   localStorage.setItem("bolsoJovem.usuario", "Visitante");
-  window.location.href = "index.html";
+  window.location.href = "inicio.html";
 });

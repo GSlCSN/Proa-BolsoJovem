@@ -3,7 +3,7 @@
 // Create (criar), Read (listar), Update (editar), Delete (excluir)
 // Os dados ficam salvos no navegador com localStorage.
 // Funções como carregarMovimentacoes, formatarMoeda e calcularResumo
-// estão em src/dados.js (compartilhado com outras páginas).
+// estão em assets/js/dados.js (compartilhado com outras páginas).
 // =============================================================
 
 // Categorias disponíveis. Cada uma tem um ícone (desenho SVG).

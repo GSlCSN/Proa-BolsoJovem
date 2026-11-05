@@ -1,7 +1,7 @@
 // =============================================================
 // BOLSO JOVEM - Página Configurações
 // Salva tema e tamanho do texto no localStorage.
-// A função aplicarPreferencias() está em src/config.js.
+// A função aplicarPreferencias() está em assets/js/config.js.
 // =============================================================
 
 // Liga um grupo de botões de rádio a uma chave do localStorage.

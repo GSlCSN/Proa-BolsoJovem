@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investimentos | Bolso Jovem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/style.css">
+  <!-- Aplica o tema e o tamanho do texto salvos em Configurações -->
+  <script src="src/config.js"></script>
+</head>
+<body>
+
+  <!-- ===================== MENU LATERAL ===================== -->
+  <aside class="sidebar">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 7 L18 3 L18 7 Z" fill="#0b4fc1"/>
+        <rect x="2" y="7" width="20" height="15" rx="4" fill="#0b4fc1"/>
+        <circle cx="16.5" cy="14.5" r="2" fill="#fff"/>
+      </svg>
+      <span>Bolso<br><em>Jovem</em></span>
+    </a>
+
+    <nav class="menu">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10h-6v-6H9v6H3z"/></svg>
+        Início
+      </a>
+      <a href="metas.html">
+        <svg viewBox="0 0 24 24" class="linha"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+        Metas
+      </a>
+      <a href="relatorios.html">
+        <svg viewBox="0 0 24 24" class="linha"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM8 11h8M8 15h6"/></svg>
+        Relatórios
+      </a>
+      <a href="movimentacoes.html">
+        <svg viewBox="0 0 24 24" class="linha"><path d="M20 12a8 8 0 0 1-14 5.3M4 12a8 8 0 0 1 14-5.3M18 3v4h-4M6 21v-4h4"/><path d="M14 9.5c-.5-.8-1.3-1-2-1-1.2 0-2 .6-2 1.5 0 2 4 1 4 3 0 .9-.8 1.5-2 1.5-.8 0-1.6-.3-2-1M12 7.5v9"/></svg>
+        Movimentação
+      </a>
+      <a href="investimentos.html" class="ativo" aria-current="page">
+        <svg viewBox="0 0 24 24" class="linha"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M6 7l9-4 2 4M15 12h6v4h-6z"/></svg>
+        Investimentos
+      </a>
+      <a href="educacao.html">
+        <svg viewBox="0 0 24 24" class="linha"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></svg>
+        Educação Financeira
+      </a>
+      <a href="configuracoes.html">
+        <svg viewBox="0 0 24 24" class="linha"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
+        Configurações
+      </a>
+    </nav>
+
+    <div class="usuario">
+      <span class="avatar">*</span>
+      <span class="nome-usuario">*****</span>
+    </div>
+  </aside>
+
+  <!-- ===================== CONTEÚDO ===================== -->
+  <main class="conteudo">
+
+    <header class="topo">
+      <div>
+        <h1>Simulador de Investimento</h1>
+        <p>Descubra como seu dinheiro pode crescer.</p>
+      </div>
+    </header>
+
+    <nav class="abas simples">
+      <span class="ativa">Para você</span>
+      <span>Renda Fixa</span>
+      <span>Diversifique</span>
+    </nav>
+
+    <section class="produtos">
+
+      <article class="painel produto">
+        <span class="tag vermelha">Isento de IR</span>
+        <h3>LCA | DI 8 MESES</h3>
+        <div class="risco">Risco baixo <span class="risco-barra"><span style="width: 25%"></span></span></div>
+        <dl>
+          <div><dt>Aplicação mínima</dt><dd>R$ 1.000,00</dd></div>
+          <div><dt>Resgate</dt><dd>D+240</dd></div>
+          <div><dt>Rentabilidade</dt><dd class="positivo">86,50% CDI</dd></div>
+        </dl>
+      </article>
+
+      <article class="painel produto">
+        <span class="tag azul-claro">Reserva de Emergência</span>
+        <h3>CDB | DI Santander</h3>
+        <div class="risco">Risco baixo <span class="risco-barra"><span style="width: 20%"></span></span></div>
+        <dl>
+          <div><dt>Aplicação mínima</dt><dd>R$ 1,00</dd></div>
+          <div><dt>Resgate</dt><dd>A qualquer momento</dd></div>
+          <div><dt>Rentabilidade</dt><dd class="positivo">100% CDI</dd></div>
+        </dl>
+      </article>
+
+      <article class="painel produto">
+        <span class="tag amarela">Renda Fixa DI</span>
+        <h3>FUNDO | Premium DI</h3>
+        <div class="risco">Risco baixo <span class="risco-barra"><span style="width: 15%"></span></span></div>
+        <dl>
+          <div><dt>Aplicação mínima</dt><dd>R$ 1,00</dd></div>
+          <div><dt>Resgate</dt><dd>A qualquer momento</dd></div>
+          <div><dt>Rentabilidade últimos 12m</dt><dd class="positivo">14,62% CDI</dd></div>
+        </dl>
+      </article>
+
+    </section>
+
+    <section class="grid-2 carteira-dicas">
+      <div>
+        <h2 class="titulo-secao">Resumo da carteira</h2>
+        <article class="painel carteira">
+          <strong class="carteira-valor">R$ 1.250,00</strong>
+          <p class="positivo">▲ +1,12% no mês</p>
+          <div class="pizza-area">
+            <div class="pizza pizza-carteira"></div>
+            <ul class="legenda grande">
+              <li><span class="quadrado" style="background: #0a1a5c"></span>Renda fixa: 75%</li>
+              <li><span class="quadrado" style="background: #e3dde0"></span>Reserva: 25%</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div>
+        <h2 class="titulo-secao">Dicas rápidas</h2>
+        <article class="painel dicas-rapidas">
+          <div class="dica-mini">
+            <h3>Dica #1</h3>
+            <p>Comece sua reserva de emergência com apenas R$ 1,00 em CDB com liquidez diária!</p>
+          </div>
+          <div class="dica-mini">
+            <h3>Dica #2</h3>
+            <p>A constância nos aportes é mais importante que o valor inicial. Invista todo mês!</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

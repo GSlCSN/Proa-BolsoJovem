@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movimentações | Bolso Jovem</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/style.css">
+  <!-- Aplica o tema e o tamanho do texto salvos em Configurações -->
+  <script src="src/config.js"></script>
+</head>
+<body>
+
+  <!-- ===================== MENU LATERAL ===================== -->
+  <aside class="sidebar">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 7 L18 3 L18 7 Z" fill="#0b4fc1"/>
+        <rect x="2" y="7" width="20" height="15" rx="4" fill="#0b4fc1"/>
+        <circle cx="16.5" cy="14.5" r="2" fill="#fff"/>
+      </svg>
+      <span>Bolso<br><em>Jovem</em></span>
+    </a>
+
+    <nav class="menu">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10h-6v-6H9v6H3z"/></svg>
+        Início
+      </a>
+      <a href="metas.html">
+        <svg viewBox="0 0 24 24" class="linha"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+        Metas
+      </a>
+      <a href="relatorios.html">
+        <svg viewBox="0 0 24 24" class="linha"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM8 11h8M8 15h6"/></svg>
+        Relatórios
+      </a>
+      <a href="movimentacoes.html" class="ativo" aria-current="page">
+        <svg viewBox="0 0 24 24" class="linha"><path d="M20 12a8 8 0 0 1-14 5.3M4 12a8 8 0 0 1 14-5.3M18 3v4h-4M6 21v-4h4"/><path d="M14 9.5c-.5-.8-1.3-1-2-1-1.2 0-2 .6-2 1.5 0 2 4 1 4 3 0 .9-.8 1.5-2 1.5-.8 0-1.6-.3-2-1M12 7.5v9"/></svg>
+        Movimentação
+      </a>
+      <a href="investimentos.html">
+        <svg viewBox="0 0 24 24" class="linha"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M6 7l9-4 2 4M15 12h6v4h-6z"/></svg>
+        Investimentos
+      </a>
+      <a href="educacao.html">
+        <svg viewBox="0 0 24 24" class="linha"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></svg>
+        Educação Financeira
+      </a>
+      <a href="configuracoes.html">
+        <svg viewBox="0 0 24 24" class="linha"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
+        Configurações
+      </a>
+    </nav>
+
+    <div class="usuario">
+      <span class="avatar">*</span>
+      <span class="nome-usuario">*****</span>
+    </div>
+  </aside>
+
+  <!-- ===================== CONTEÚDO ===================== -->
+  <main class="conteudo">
+
+    <header class="topo">
+      <div>
+        <h1>Minhas Movimentações</h1>
+        <p>Acompanhe suas receitas e despesas.</p>
+      </div>
+      <button id="btn-nova" class="btn-primario">+ Nova Movimentação</button>
+    </header>
+
+    <!-- Cards de resumo (preenchidos pelo JavaScript) -->
+    <section class="cards">
+      <div class="card entrada">
+        <div class="card-titulo">Entradas <span class="seta">↑</span></div>
+        <strong id="total-entradas">R$ 0,00</strong>
+      </div>
+      <div class="card despesa">
+        <div class="card-titulo">Despesas <span class="seta">↓</span></div>
+        <strong id="total-despesas">R$ 0,00</strong>
+      </div>
+      <div class="card saldo">
+        <div class="card-titulo" id="label-saldo">Saldo do mês</div>
+        <strong id="total-saldo">R$ 0,00</strong>
+      </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filtros">
+      <select id="filtro-periodo" aria-label="Período">
+        <option value="mes">Este mês</option>
+        <option value="todos">Todo o período</option>
+      </select>
+      <select id="filtro-categoria" aria-label="Categoria">
+        <option value="todas">Todas as categorias</option>
+        <!-- as outras opções o JavaScript cria -->
+      </select>
+    </section>
+
+    <!-- Lista de movimentações (preenchida pelo JavaScript) -->
+    <ul id="lista-mov" class="lista"></ul>
+  </main>
+
+  <!-- ===================== JANELA DO FORMULÁRIO ===================== -->
+  <!-- <dialog> é uma janela nativa do HTML: abre com showModal() e fecha com close() -->
+  <dialog id="modal-mov" class="modal">
+    <form id="form-mov" novalidate>
+      <h2 id="modal-titulo">Nova movimentação</h2>
+
+      <label>Descrição
+        <input type="text" id="descricao" placeholder="Ex: Salário, Mercado...">
+      </label>
+
+      <div class="linha-campos">
+        <label>Valor (R$)
+          <input type="number" id="valor" step="0.01" min="0" placeholder="0,00">
+        </label>
+        <label>Tipo
+          <select id="tipo">
+            <option value="entrada">Entrada</option>
+            <option value="despesa">Despesa</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="linha-campos">
+        <label>Categoria
+          <select id="categoria"></select>
+        </label>
+        <label>Data
+          <input type="date" id="data">
+        </label>
+      </div>
+
+      <p id="erro" class="erro" role="alert"></p>
+
+      <div class="modal-botoes">
+        <button type="button" id="btn-cancelar" class="btn-secundario">Cancelar</button>
+        <button type="submit" id="btn-salvar" class="btn-primario">Adicionar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="src/dados.js"></script>
+  <script src="src/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1771 @@
+/* =============================================================
+   BOLSO JOVEM - Estilos de todas as telas
+   Índice:
+   1. Cores (tema claro e escuro)    6. Movimentações
+   2. Base                           7. Início
+   3. Menu lateral                   8. Metas
+   4. Conteúdo, topo e botões        9. Relatórios
+   5. Peças comuns (painel, barra)   10. Investimentos
+                                     11. Educação
+                                     12. Configurações
+                                     13. Login
+                                     14. Celular
+   ============================================================= */
+
+/* ===================== 1. CORES ===================== */
+:root {
+  --azul-escuro: #0a1a5c;   /* títulos */
+  --azul-logo: #0b4fc1;
+  --azul-botao: #2f7bf5;
+  --azul-ativo: #c9daf6;    /* item ativo do menu */
+  --fundo: #eef2fc;         /* fundo da área principal */
+  --fundo-menu: #f4f4f5;
+  --rodape-menu: #e6e8ec;
+  --fundo-lista: #eef0f4;   /* fundo dos painéis */
+  --superficie: #ffffff;    /* fundo de cartões brancos */
+  --chip: #e8ebf1;
+  --hover: #e4e9f3;
+  --texto: #111111;
+  --verde-card: #d3f2d6;
+  --vermelho-card: #f2d8db;
+  --azul-card: #d2dff6;
+  --verde: #2e7d32;
+  --vermelho: #c62828;
+  --cinza: #6b7280;
+  --borda: #c9ccd3;
+  --sombra: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+/* Tema escuro: só trocamos as variáveis, o resto do CSS continua igual */
+html[data-tema="escuro"] {
+  color-scheme: dark;
+  --azul-escuro: #c9d7ff;
+  --azul-ativo: #1e3a7a;
+  --fundo: #0f1525;
+  --fundo-menu: #161d2e;
+  --rodape-menu: #1c2438;
+  --fundo-lista: #1c2438;
+  --superficie: #222b40;
+  --chip: #252f47;
+  --hover: #252f47;
+  --texto: #e8ecf4;
+  --verde-card: #16422a;
+  --vermelho-card: #4a1d24;
+  --azul-card: #1d3466;
+  --verde: #5cd37a;
+  --vermelho: #ff7b7b;
+  --cinza: #9aa3b5;
+  --borda: #3a4357;
+  --sombra: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ===================== 2. BASE ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  display: flex;
+  min-height: 100vh;
+}
+
+button,
+select,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* ===================== 3. MENU LATERAL ===================== */
+.sidebar {
+  width: 215px;
+  flex-shrink: 0;
+  background: var(--fundo-menu);
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 40px 28px 50px;
+  text-decoration: none;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 0.95;
+  color: var(--azul-escuro);
+}
+
+.logo svg {
+  width: 42px;
+  height: 42px;
+}
+
+.logo em {
+  font-style: normal;
+  color: var(--azul-logo);
+  margin-left: 6px;
+}
+
+html[data-tema="escuro"] .logo em {
+  color: #6b9cff;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.menu a:hover {
+  background: var(--hover);
+}
+
+.menu a.ativo {
+  background: var(--azul-ativo);
+}
+
+.menu svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+/* Ícones feitos de linha (sem preenchimento) */
+.menu svg.linha {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.menu a.ativo svg {
+  color: var(--azul-logo);
+}
+
+html[data-tema="escuro"] .menu a.ativo svg {
+  color: #9db9ff;
+}
+
+.usuario {
+  margin-top: auto;
+  background: var(--rodape-menu);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 20px;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0a1a5c;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+}
+
+/* ===================== 4. CONTEÚDO, TOPO E BOTÕES ===================== */
+.conteudo {
+  flex: 1;
+  padding: 28px 70px 40px 26px;
+  max-width: 960px;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.topo h1 {
+  font-family: "Baloo 2", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--azul-escuro);
+}
+
+.topo p {
+  font-size: 13px;
+}
+
+.topo p.sub-grande {
+  font-size: 17px;
+  margin-top: 4px;
+}
+
+.btn-primario {
+  background: var(--azul-botao);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primario:hover {
+  background: #1f66db;
+}
+
+.btn-secundario {
+  background: var(--superficie);
+  color: var(--azul-escuro);
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  padding: 9px 18px;
+  cursor: pointer;
+}
+
+/* Botão só com ícone (sino de notificações) */
+.btn-icone {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+
+.btn-icone svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+
+/* ===================== 5. PEÇAS COMUNS ===================== */
+/* Painel = caixa cinza clara com sombra, usada em quase todas as telas */
+.painel {
+  background: var(--fundo-lista);
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+  padding: 20px 24px;
+}
+
+.painel h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Barra de progresso: .barra é o trilho, o span dentro é o preenchimento */
+.progresso {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.barra {
+  flex: 1;
+  height: 10px;
+  background: #d9d9d9;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.barra span {
+  display: block;
+  height: 100%;
+  background: var(--azul-logo);
+  border-radius: 5px;
+}
+
+.barra.escura span {
+  background: #0a1a5c;
+}
+
+html[data-tema="escuro"] .barra { background: #3a4357; }
+html[data-tema="escuro"] .barra.escura span { background: #6b9cff; }
+
+.progresso strong {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* Abas (Relatórios e Investimentos) */
+.abas {
+  display: inline-flex;
+  gap: 50px;
+  border: 1px solid var(--texto);
+  border-radius: 20px;
+  padding: 4px 36px;
+  margin: 30px 0 0 20px;
+  font-size: 22px;
+}
+
+.abas a {
+  text-decoration: none;
+}
+
+.abas .ativa {
+  color: var(--azul-logo);
+  text-decoration: underline;
+}
+
+html[data-tema="escuro"] .abas .ativa { color: #9db9ff; }
+
+.abas.simples {
+  border: none;
+  padding: 0;
+  margin: 26px 0 20px;
+  gap: 90px;
+}
+
+.abas.simples .ativa {
+  color: inherit;
+}
+
+.chip {
+  display: inline-block;
+  margin: 40px 0 0 20px;
+  border: 1px solid var(--texto);
+  border-radius: 10px;
+  padding: 2px 8px;
+  font-size: 11px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 60px;
+  margin-top: 30px;
+}
+
+.quadrado {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.quadrado.verde { background: #00e632; }
+.quadrado.vermelho { background: #ff0000; }
+.quadrado.azul { background: #0039ff; }
+
+.positivo {
+  color: #1fb53f;
+}
+
+/* ===================== 6. MOVIMENTAÇÕES ===================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  margin-top: 26px;
+}
+
+.card {
+  border-radius: 14px;
+  padding: 18px 28px 26px;
+  box-shadow: var(--sombra);
+}
+
+.card.entrada { background: var(--verde-card); }
+.card.despesa { background: var(--vermelho-card); }
+.card.saldo   { background: var(--azul-card); }
+
+.card-titulo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card.entrada .seta { color: var(--verde); }
+.card.despesa .seta { color: var(--vermelho); }
+
+.card strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.filtros {
+  display: flex;
+  gap: 60px;
+  margin: 30px 0 56px;
+}
+
+.filtros select {
+  background: var(--chip);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.lista {
+  list-style: none;
+  background: var(--fundo-lista);
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+
+.item-mov {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 14px 20px;
+  min-height: 88px;
+  border-bottom: 1px solid #8a8d94;
+}
+
+.item-mov:last-child {
+  border-bottom: none;
+}
+
+.icone {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  color: var(--texto);
+}
+
+.icone svg {
+  width: 100%;
+  height: 100%;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  gap: 4px;
+  padding-top: 8px;
+}
+
+.info strong {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.info span {
+  font-size: 13px;
+  color: var(--cinza);
+}
+
+.valor {
+  font-size: 24px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.item-mov.entrada .valor { color: var(--verde); }
+.item-mov.despesa .valor { color: var(--vermelho); }
+
+.acoes {
+  display: flex;
+  gap: 6px;
+}
+
+.acoes button {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--cinza);
+}
+
+.acoes button:hover { background: var(--hover); color: var(--texto); }
+.acoes .btn-excluir:hover { color: var(--vermelho); }
+
+.acoes svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none; /* o clique "cai" no botão, não no desenho */
+}
+
+.vazio {
+  padding: 30px;
+  text-align: center;
+  color: var(--cinza);
+}
+
+/* Janela (modal) do formulário */
+.modal {
+  border: none;
+  border-radius: 16px;
+  padding: 26px;
+  width: min(460px, calc(100% - 32px));
+  margin: auto;
+  background: var(--superficie);
+  color: var(--texto);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal::backdrop {
+  background: rgba(10, 26, 92, 0.35);
+}
+
+.modal h2 {
+  font-family: "Baloo 2", sans-serif;
+  color: var(--azul-escuro);
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.modal input,
+.modal select {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.modal input:focus,
+.modal select:focus {
+  outline: 2px solid var(--azul-botao);
+  border-color: transparent;
+}
+
+.linha-campos {
+  display: flex;
+  gap: 14px;
+}
+
+.erro {
+  color: var(--vermelho);
+  font-size: 14px;
+  min-height: 18px;
+}
+
+.modal-botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ===================== 7. INÍCIO ===================== */
+.topo h1.ola {
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--texto);
+  margin-top: 20px;
+}
+
+.grid-inicio {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  grid-template-areas:
+    "saldo saldo"
+    "trilha dica"
+    "atalhos dica";
+  gap: 26px 30px;
+  margin-top: 26px;
+}
+
+.saldo-card {
+  grid-area: saldo;
+  background: var(--azul-botao);
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.saldo-label {
+  font-size: 20px;
+}
+
+.saldo-valor {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 12px 0 22px;
+  font-size: 20px;
+}
+
+.saldo-valor strong {
+  font-weight: 400;
+  min-width: 130px;
+}
+
+.btn-olho,
+.btn-olho-senha {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  color: inherit;
+}
+
+.btn-olho svg,
+.btn-olho-senha svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* Olho aberto = sem o risco */
+.btn-olho.aberto .risco,
+.btn-olho-senha.aberto .risco {
+  display: none;
+}
+
+.saldo-variacao {
+  font-size: 15px;
+}
+
+.saldo-variacao span {
+  color: #7dff9a;
+  margin-right: 8px;
+}
+
+.grafico-linha {
+  width: 45%;
+  height: 80px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.trilha {
+  grid-area: trilha;
+  text-decoration: none;
+}
+
+.painel-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 18px;
+}
+
+.trilha h2 {
+  color: var(--azul-logo);
+  font-size: 22px;
+}
+
+html[data-tema="escuro"] .trilha h2 { color: #9db9ff; }
+
+.link-pequeno {
+  font-size: 13px;
+}
+
+.trilha .barra {
+  max-width: 400px;
+}
+
+.trilha p {
+  margin-top: 20px;
+  color: var(--azul-escuro);
+}
+
+.atalhos {
+  grid-area: atalhos;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.atalhos a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  max-width: 120px;
+}
+
+.atalho-icone {
+  width: 82px;
+  height: 82px;
+  border: 1.5px solid var(--texto);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+}
+
+.atalho-icone svg {
+  width: 46px;
+  height: 46px;
+  fill: none;
+  stroke: var(--azul-logo);
+  stroke-width: 1.4;
+}
+
+html[data-tema="escuro"] .atalho-icone svg { stroke: #9db9ff; }
+
+.atalhos a:hover .atalho-icone {
+  background: var(--hover);
+}
+
+.dica-dia {
+  grid-area: dica;
+  background: var(--azul-card);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.dica-dia h2 {
+  color: #d00000;
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+html[data-tema="escuro"] .dica-dia h2 { color: #ff7b7b; }
+
+.dica-dia p {
+  color: var(--azul-escuro);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.porquinho {
+  width: 170px;
+  margin-top: auto;
+}
+
+/* ===================== 8. METAS ===================== */
+.lista-metas {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 24px 30px;
+}
+
+.meta-icone {
+  width: 128px;
+  height: 90px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: var(--texto);
+}
+
+.meta-icone svg {
+  width: 80px;
+  height: 80px;
+  fill: currentColor;
+}
+
+.meta-icone.com-fundo {
+  background: var(--azul-card);
+  border-radius: 50%;
+}
+
+.meta-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.meta-info h2 {
+  font-size: 22px;
+}
+
+.meta-info .barra {
+  max-width: 400px;
+}
+
+.meta-info p {
+  font-size: 20px;
+}
+
+.btn-mais {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ===================== 9. RELATÓRIOS ===================== */
+.grid-2 .painel {
+  min-height: 210px;
+  scroll-margin-top: 20px; /* espaço ao pular pelas abas */
+}
+
+.resumo-periodo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.resumo-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.resumo-lista li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.resumo-lista strong {
+  display: block;
+  font-weight: 400;
+}
+
+.seta-verde { color: #1fb53f; font-size: 20px; }
+.seta-vermelha { color: #d00000; font-size: 20px; }
+
+.icone-grafico {
+  width: 70px;
+  height: 70px;
+  fill: var(--azul-logo);
+  color: var(--azul-logo);
+}
+
+.barras {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 170px;
+  border-left: 1px solid var(--texto);
+  border-bottom: 1px solid var(--texto);
+  margin: 20px 10px 0 20px;
+}
+
+.coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 50px;
+}
+
+.barra-v {
+  width: 100%;
+  transition: height 0.6s;
+}
+
+.barra-v.verde { background: #00e632; }
+.barra-v.azul { background: #678fd6; }
+
+.coluna small {
+  position: relative;
+  top: 20px;
+  height: 0;
+  font-size: 11px;
+}
+
+.pizza-area {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 16px;
+}
+
+.pizza {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--borda);
+  border: 2px solid var(--superficie);
+  flex-shrink: 0;
+}
+
+.legenda {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  font-weight: 500;
+}
+
+.legenda li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legenda-nome {
+  flex: 1;
+}
+
+.dica-rel {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.lampada {
+  font-size: 70px;
+}
+
+.dica-rel h2 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.dica-rel p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* ===================== 10. INVESTIMENTOS ===================== */
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.produto {
+  background: var(--superficie);
+  padding: 14px 16px;
+  font-size: 12px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #111;
+}
+
+.tag.vermelha { background: #d00000; color: #fff; }
+.tag.azul-claro { background: #3cc6c6; }
+.tag.amarela { background: #d4a514; }
+
+.produto h3 {
+  font-family: "Baloo 2", sans-serif;
+  font-size: 19px;
+  color: var(--azul-escuro);
+  margin-top: 2px;
+}
+
+.risco {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--texto);
+}
+
+.risco-barra {
+  width: 90px;
+  height: 3px;
+  background: #ddd;
+}
+
+.risco-barra span {
+  display: block;
+  height: 100%;
+  background: #2e7d32;
+}
+
+.produto dl div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.produto dt {
+  font-weight: 500;
+}
+
+.produto dd.positivo {
+  font-weight: 500;
+}
+
+.titulo-secao {
+  font-family: "Baloo 2", sans-serif;
+  font-size: 24px;
+  color: var(--azul-escuro);
+  margin-bottom: 10px;
+}
+
+.carteira-dicas {
+  margin-top: 24px;
+}
+
+.carteira {
+  background: var(--superficie);
+  padding: 24px;
+}
+
+.carteira-valor {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.carteira > .positivo {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.pizza-carteira {
+  width: 180px;
+  height: 180px;
+  border: 1px solid var(--texto);
+  background: conic-gradient(#e3dde0 0% 25%, #0a1a5c 25% 100%);
+}
+
+.legenda.grande {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.dicas-rapidas {
+  display: flex;
+  gap: 6px;
+  padding: 50px 6px 6px;
+  min-height: 320px;
+  align-items: flex-start;
+}
+
+.dica-mini {
+  flex: 1;
+  background: var(--superficie);
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.dica-mini h3 {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.dica-mini p {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ===================== 11. EDUCAÇÃO ===================== */
+.cursos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.curso {
+  background: var(--superficie);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.curso svg {
+  height: 85px;
+  width: 100px;
+}
+
+.curso h2 {
+  font-weight: 700;
+}
+
+.curso p {
+  color: var(--cinza);
+  font-size: 17px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.btn-acessar {
+  background: var(--azul-card);
+  color: var(--azul-botao);
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px 26px;
+  border-radius: 14px;
+  margin-top: 16px;
+}
+
+.btn-acessar:hover {
+  filter: brightness(0.95);
+}
+
+.jornada {
+  background: var(--superficie);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 26px 30px;
+}
+
+.jornada-info {
+  flex: 1;
+  max-width: 540px;
+}
+
+.jornada h2 {
+  color: var(--azul-logo);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+html[data-tema="escuro"] .jornada h2 { color: #9db9ff; }
+
+.jornada .progresso strong {
+  color: var(--azul-logo);
+  font-size: 18px;
+}
+
+.jornada p {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cinza);
+}
+
+.capelo {
+  width: 180px;
+}
+
+/* ===================== 12. CONFIGURAÇÕES ===================== */
+.grid-config {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 0;
+  margin-top: 30px;
+  align-items: start;
+}
+
+.secao-config {
+  margin-bottom: 40px;
+}
+
+.secao-config h2 {
+  font-family: "Baloo 2", sans-serif;
+  font-size: 24px;
+  color: var(--azul-escuro);
+  border-bottom: 1px solid var(--texto);
+  padding: 0 0 2px 28px;
+  margin-left: -26px;
+}
+
+.secao-config fieldset {
+  border: none;
+  margin-top: 14px;
+}
+
+.secao-config legend {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.opcoes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 136px;
+  padding: 4px 12px;
+  background: var(--superficie);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.opcao input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--azul-botao);
+}
+
+.opcao:has(input:checked) {
+  color: var(--azul-botao);
+}
+
+.link-conta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 30px 0 0 6px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.link-conta svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--texto);
+  stroke-width: 2;
+}
+
+.link-conta:hover {
+  text-decoration: underline;
+}
+
+.sobre {
+  background: var(--superficie);
+  text-align: center;
+  padding: 30px 40px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 0;
+}
+
+.sobre svg {
+  width: 190px;
+  height: 190px;
+}
+
+.sobre h2 {
+  font-family: "Baloo 2", sans-serif;
+  color: var(--azul-escuro);
+  font-weight: 700;
+}
+
+.sobre p {
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.sobre small {
+  align-self: flex-start;
+  color: var(--cinza);
+  font-weight: 700;
+}
+
+/* ===================== 13. LOGIN ===================== */
+.pagina-login {
+  background: #fff;
+  color: #111;
+}
+
+.login {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.login-lado {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #eef2fc;
+  display: flex;
+  align-items: center;
+}
+
+/* Formas decorativas nos cantos */
+.forma {
+  position: absolute;
+}
+
+.forma-1 {
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  background: #2f7bf5;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.forma-2 {
+  top: 0;
+  left: 60px;
+  width: 160px;
+  height: 90px;
+  background: #c4d6fb;
+  clip-path: polygon(20% 0, 100% 0, 70% 100%, 0 100%);
+}
+
+.forma-3 {
+  bottom: 0;
+  left: 0;
+  width: 260px;
+  height: 230px;
+  background: #4a8cff;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.forma-4 {
+  bottom: 0;
+  left: 0;
+  width: 140px;
+  height: 120px;
+  background: #0a1a5c;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.login-marca {
+  position: relative;
+  padding: 40px 44px;
+}
+
+.logo-grande {
+  padding: 0;
+  font-size: 46px;
+}
+
+.logo-grande svg {
+  width: 96px;
+  height: 96px;
+}
+
+.logo-grande em {
+  color: #2f7bf5;
+}
+
+.login-frase {
+  font-size: 20px;
+  color: #0a1a5c;
+  margin: 26px 0 30px;
+  max-width: 300px;
+}
+
+.login-vantagens {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0a1a5c;
+}
+
+.login-vantagens li {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 200px;
+}
+
+.vantagem-icone {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background: #dbe5fb;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.vantagem-icone svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: #0b4fc1;
+  stroke-width: 2;
+}
+
+.porquinho-login {
+  width: 190px;
+  margin: 20px 0 0 30px;
+}
+
+.login-form-area {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 40px 30px;
+  background: #fbfcff;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login-form h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 500;
+  color: #0a1a5c;
+}
+
+.login-sub {
+  text-align: center;
+  color: #2756c5;
+  max-width: 330px;
+  margin: 0 auto 10px;
+}
+
+.campo-icone {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1.5px solid #c7cde0;
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 64px;
+  background: #fff;
+}
+
+.campo-icone:focus-within {
+  border-color: #2f7bf5;
+}
+
+.campo-icone > svg {
+  width: 28px;
+  height: 28px;
+  fill: #46526e;
+  flex-shrink: 0;
+}
+
+.campo-icone input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: none;
+}
+
+.btn-olho-senha {
+  width: 26px;
+  height: 26px;
+  color: #46526e;
+}
+
+.login-opcoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lembrar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-weight: 500;
+}
+
+.lembrar input {
+  width: 24px;
+  height: 24px;
+  accent-color: #2f7bf5;
+}
+
+.login-opcoes a,
+.cadastro a {
+  color: #2f7bf5;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.login-opcoes a:hover,
+.cadastro a:hover {
+  text-decoration: underline;
+}
+
+.btn-entrar {
+  height: 64px;
+  border: none;
+  border-radius: 6px;
+  background: #0a6cff;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-entrar:hover {
+  background: #005ae0;
+}
+
+.btn-entrar span {
+  margin-left: 14px;
+}
+
+.ou {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #b6c0d6;
+  font-size: 14px;
+}
+
+.ou::before,
+.ou::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #c7cde0;
+}
+
+.btn-google {
+  height: 64px;
+  border: 2px solid #2f7bf5;
+  border-radius: 6px;
+  background: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn-google:hover {
+  background: #f2f6ff;
+}
+
+.btn-google .g {
+  font-size: 26px;
+  font-weight: 700;
+  color: #4285f4;
+}
+
+.cadastro {
+  text-align: center;
+  font-weight: 500;
+  color: #0a1a5c;
+}
+
+.cadastro a {
+  margin-left: 26px;
+}
+
+/* ===================== AJUSTE À TELA DO COMPUTADOR =====================
+   O site ocupa exatamente a largura e a altura da janela, sem barras.
+   Os espaços usam clamp(mínimo, ideal, máximo): o valor "ideal" em vh
+   (% da altura da janela) faz tudo encolher em telas mais baixas.
+   --zoom vem de src/config.js (opção "Tamanho do texto"). */
+body {
+  height: calc(100vh / var(--zoom, 1));
+  overflow: hidden;
+}
+
+.sidebar {
+  position: static;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.logo { padding: clamp(16px, 4vh, 40px) 28px clamp(16px, 5vh, 50px); }
+
+.conteudo {
+  max-width: none;   /* usa a largura toda */
+  min-width: 0;      /* deixa encolher em vez de criar barra para o lado */
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;  /* só aparece se a janela for muito baixa */
+  display: flex;
+  flex-direction: column;
+  padding: clamp(14px, 3vh, 28px) clamp(20px, 3vw, 60px) clamp(14px, 3vh, 32px);
+}
+
+/* minmax(0, 1fr) impede que um texto comprido estique a coluna */
+.cards, .produtos, .cursos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* Movimentações: com muitos itens, só a lista rola (por dentro) */
+.cards { margin-top: clamp(12px, 3vh, 26px); }
+.filtros { margin: clamp(12px, 3vh, 30px) 0 clamp(12px, 4vh, 56px); }
+.lista { flex: 0 1 auto; min-height: 120px; overflow-y: auto; }
+.item-mov { min-height: clamp(60px, 9vh, 88px); padding: 10px 20px; }
+
+/* Início: a grade ocupa a altura que sobra */
+.topo h1.ola { margin-top: 0; }
+.grid-inicio {
+  flex: 1;
+  min-height: 0;
+  grid-template-rows: auto 1fr 1fr;
+  margin-top: clamp(12px, 3vh, 26px);
+  gap: clamp(14px, 3vh, 26px) 30px;
+}
+.saldo-card { padding: clamp(16px, 3.5vh, 30px) 40px; }
+.saldo-valor { margin: clamp(6px, 1.5vh, 12px) 0 clamp(8px, 2.5vh, 22px); }
+.dica-dia h2 { margin-top: clamp(0px, 3vh, 30px); }
+.porquinho { width: clamp(100px, 18vh, 170px); }
+.atalho-icone { width: clamp(56px, 9vh, 82px); height: clamp(56px, 9vh, 82px); }
+
+/* Metas */
+.lista-metas { gap: clamp(14px, 4vh, 50px); margin-top: clamp(14px, 3vh, 30px); }
+.meta { padding: clamp(12px, 2.5vh, 24px) 30px; }
+.meta-icone { height: clamp(60px, 10vh, 90px); }
+
+/* Relatórios */
+.abas { margin-top: clamp(12px, 3vh, 30px); }
+.chip { margin-top: clamp(12px, 4vh, 40px); }
+.grid-2 { gap: clamp(16px, 4vh, 40px) 60px; margin-top: clamp(14px, 3vh, 30px); }
+.grid-2 .painel { min-height: 0; }
+.barras { height: clamp(100px, 18vh, 170px); }
+.pizza { width: clamp(80px, 13vh, 110px); height: clamp(80px, 13vh, 110px); }
+.lampada { font-size: clamp(40px, 8vh, 70px); }
+
+/* Investimentos */
+.abas.simples { margin: clamp(10px, 2.5vh, 26px) 0 clamp(10px, 2vh, 20px); }
+.carteira-dicas { margin-top: clamp(12px, 2.5vh, 24px); }
+.carteira { padding: clamp(14px, 2.5vh, 24px); }
+.pizza-carteira { width: clamp(100px, 18vh, 180px); height: clamp(100px, 18vh, 180px); }
+.dicas-rapidas { min-height: 0; padding-top: clamp(16px, 5vh, 50px); }
+
+/* Educação */
+.cursos { margin-top: clamp(14px, 4vh, 40px); }
+.curso { gap: clamp(6px, 1.2vh, 12px); }
+.curso svg { height: clamp(50px, 9vh, 85px); }
+.btn-acessar { margin-top: clamp(4px, 1.5vh, 16px); }
+.jornada { padding: clamp(14px, 2.5vh, 26px) 30px; }
+.capelo { width: clamp(100px, 18vh, 180px); }
+
+/* Configurações */
+.grid-config { margin-top: clamp(14px, 3vh, 30px); }
+.secao-config { margin-bottom: clamp(14px, 4vh, 40px); }
+.opcoes { margin-bottom: clamp(10px, 3vh, 30px); }
+.link-conta { margin-top: clamp(12px, 3vh, 30px); }
+.sobre { padding: clamp(16px, 3vh, 30px) 40px clamp(20px, 8vh, 80px); }
+.sobre svg { width: clamp(100px, 20vh, 190px); height: clamp(100px, 20vh, 190px); }
+
+/* Login */
+.login { min-height: 0; height: 100%; }
+.login-form-area { overflow-y: auto; }
+.login-form { gap: clamp(10px, 2.4vh, 24px); }
+.campo-icone, .btn-entrar, .btn-google { height: clamp(46px, 6.5vh, 64px); }
+.logo-grande svg { width: clamp(60px, 10vh, 96px); height: clamp(60px, 10vh, 96px); }
+.login-frase { margin: clamp(10px, 2.5vh, 26px) 0 clamp(12px, 3vh, 30px); }
+.porquinho-login { width: clamp(100px, 20vh, 190px); }
+
+/* ===================== 14. CELULAR / TELA PEQUENA ===================== */
+@media (max-width: 800px) {
+  /* No celular a página volta a rolar normalmente */
+  body { height: auto; overflow: auto; }
+  .conteudo { height: auto; overflow: visible; }
+  .lista { overflow: visible; }
+  .grid-inicio { flex: none; grid-template-rows: none; }
+  .login { height: auto; }
+
+  body { flex-direction: column; }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+
+  .logo { padding: 16px; }
+  .menu { flex-direction: row; overflow-x: auto; }
+  .menu a { white-space: nowrap; }
+  .usuario { display: none; }
+
+  .conteudo { padding: 20px 16px; max-width: 100%; }
+  .topo { flex-direction: column; }
+  .cards { grid-template-columns: 1fr; gap: 14px; }
+  .filtros { gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+  .item-mov { gap: 12px; flex-wrap: wrap; }
+  .icone { width: 44px; height: 44px; }
+  .valor { font-size: 18px; }
+  .linha-campos { flex-direction: column; }
+
+  .grid-inicio {
+    grid-template-columns: 1fr;
+    grid-template-areas: "saldo" "trilha" "atalhos" "dica";
+  }
+  .saldo-card { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .grafico-linha { width: 100%; }
+  .atalhos { flex-wrap: wrap; }
+  .atalho-icone { width: 64px; height: 64px; }
+
+  .meta { flex-direction: column; align-items: stretch; gap: 14px; }
+  .meta-icone { width: 90px; height: 70px; }
+
+  .abas { gap: 20px; padding: 4px 16px; margin-left: 0; font-size: 17px; }
+  .abas.simples { gap: 30px; }
+  .grid-2, .produtos, .cursos, .grid-config { grid-template-columns: 1fr; gap: 20px; }
+  .pizza-area { flex-direction: column; align-items: flex-start; }
+  .dicas-rapidas { flex-direction: column; padding-top: 6px; min-height: 0; }
+  .jornada { flex-direction: column; align-items: stretch; }
+  .capelo { align-self: center; }
+  .secao-config h2 { margin-left: 0; padding-left: 0; }
+
+  .login { flex-direction: column; }
+  .login-lado { min-height: 0; }
+  .porquinho-login { display: none; }
+  .logo-grande { font-size: 34px; }
+  .logo-grande svg { width: 64px; height: 64px; }
+}

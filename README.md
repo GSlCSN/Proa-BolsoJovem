@@ -1,44 +1,29 @@
 # Bolso Jovem
 
-Site de educação e controle financeiro para jovens, feito em HTML, CSS e JavaScript puro (Vanilla JS). Os dados ficam salvos no navegador com `localStorage`.
+Site de educação e controle financeiro para jovens, em HTML, CSS e JavaScript puro. É uma página única: o menu troca o conteúdo sem recarregar. Os dados ficam salvos no navegador com `localStorage`.
 
 ## Como abrir
 
-Abra o `index.html` no navegador (ou use o Live Server do VS Code). Ele leva para a tela de login.
+Abra o `index.html` no navegador (ou use o Live Server do VS Code).
 
-## Estrutura de pastas
+## Estrutura
 
 ```
 Bolsa-Jovem/
-├── index.html                 → porta de entrada (redireciona para o login)
-├── pages/                     → as telas do site
-│   ├── login.html
-│   ├── inicio.html
-│   ├── metas.html
-│   ├── relatorios.html
-│   ├── movimentacoes.html     → CRUD de movimentações
-│   ├── investimentos.html
-│   ├── educacao.html
-│   └── configuracoes.html
-└── assets/
-    ├── css/
-    │   └── style.css          → estilos de todas as telas
-    └── js/
-        ├── config.js          → tema, tamanho do texto e nome do usuário (todas as páginas)
-        ├── dados.js           → funções compartilhadas: localStorage, moeda, resumo
-        └── pages/             → um script para cada tela
-            ├── login.js
-            ├── inicio.js
-            ├── relatorios.js
-            ├── movimentacoes.js
-            └── configuracoes.js
+├── index.html            → estrutura da página
+├── assets/
+│   ├── css/style.css     → visual (tema escuro e claro, dourado)
+│   └── js/script.js      → telas, CRUDs e configurações
+└── versao-antiga/        → versão anterior (azul, várias páginas)
 ```
 
-## CRUD de Movimentações
+## CRUDs
 
-| Operação | Onde está em `movimentacoes.js` |
-|---|---|
-| Create (criar) | envio do formulário, quando `idEmEdicao === null` |
-| Read (listar)  | função `renderizar()` |
-| Update (editar) | botão de lápis + envio do formulário com `idEmEdicao` |
-| Delete (excluir) | botão de lixeira, com `filter` |
+| | Movimentações | Metas |
+|---|---|---|
+| Create | `newMove(t)`, botão "Nova movimentação" | `newGoal()`, botão "Nova meta" |
+| Read | `V.movimentacoes()`, com filtros de período, tipo e categoria | `V.metas()` |
+| Update | lápis em cada linha, que chama `newMove(t, m)` | lápis em cada meta, que chama `newGoal(g)`, e o botão "Guardar" |
+| Delete | lixeira, que pede confirmação | lixeira, que pede confirmação |
+
+Os cards e os relatórios contam só as movimentações do mês atual.

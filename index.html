@@ -1,72 +1,70 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="dark" data-size="m">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bolso Jovem</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolsa Jovem</title>
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
-  <body data-fx="on">
-    <svg width="0" height="0" style="position: absolute">
-      <defs>
-        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#f7e08a" />
-          <stop offset=".5" stop-color="#d4af37" />
-          <stop offset="1" stop-color="#a67c00" />
-        </linearGradient>
-      </defs>
-    </svg>
-    <div class="app">
-      <aside class="side">
-        <div class="logo">
-          <svg viewBox="0 0 48 48">
-            <rect x="4" y="30" width="8" height="14" rx="1.5" fill="url(#g)" />
-            <rect x="16" y="22" width="8" height="22" rx="1.5" fill="url(#g)" />
-            <rect x="28" y="30" width="8" height="14" rx="1.5" fill="url(#g)" />
-            <path
-              d="M4 22 18 10l8 6 15-12M32 4h10v10"
-              fill="none"
-              stroke="url(#g)"
-              stroke-width="4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            /></svg
-          ><span>Bolso<br />Jovem</span>
-        </div>
-        <nav id="nav"></nav>
-        <div class="me">
-          <span class="av" id="av"></span><span id="nm"></span>
-        </div>
-      </aside>
-      <main>
-        <div class="top">
-          <div>
-            <h1 id="h1"></h1>
-            <p class="mu" id="h2"></p>
-          </div>
-          <span id="act"></span
-          ><button class="ib" id="thm" aria-label="Alternar tema"></button>
-        </div>
-        <div class="view" id="view"></div>
-      </main>
-    </div>
-    <dialog id="dlg">
-      <form id="df">
-        <h3 id="dt"></h3>
-        <p class="mu" id="dp"></p>
-        <div id="dfl"></div>
-        <div class="da">
-          <button type="button" class="btn ghost" id="dcx">Cancelar</button
-          ><button class="btn gold" id="dok">Salvar</button>
-        </div>
-      </form>
-    </dialog>
-    <div id="gate">
-      <h2 class="gt" id="gt"></h2>
-      <p class="mu" id="gp"></p>
-      <button class="btn gold" id="gb"></button>
-    </div>
-    <div id="toast"></div>
-    <script src="assets/js/script.js"></script>
-  </body>
+  <body>
+    <nav class="navbar">
+        <ul class="navlinks">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#metas">Metas</a></li>
+            <li><a href="#Finanças">Finanças</a></li>
+            <li><a href="#investimentos">Investimentos</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#configuracoes">Configurações</a></li>
+        </ul>
+    </nav>
+
+        <main>
+            <section class="linha1">
+                <div class="card">
+                    <h3>Últimas transações</h3>
+                    <p>IFOOD — R$ 130 (09.11.2026)</p>
+                    <p>NUBANK — R$ 240 (06.11.2026)</p>
+                    <p>SPOTIFY — R$ 12,90 (03.11.2026)</p>
+                    <p>MARISA — R$ 360 (01.11.2026)</p>
+                </div>
+                <div class="card">
+                    <h3>gastos por categoria (OUT)</h3>
+                    <p>Alimentação: R$ 893 (35%)</p>
+                    <p>Transporte: R$ 396 (20%)</p>
+                    <p>Lazer: R$ 356,40 (18%)</p>
+                    <p>Moradia: R$ 237,50 (12%)</p>
+                    <p>Saúde: R$ 197 (10% e 5% representados visualmente)</p>
+                </div>
+                <div class="card">
+                    <h3>alertas inteligentes de despesas</h3>
+                    <p>⚠️ Alimentação: Gasto acima do planejado. Cuidado!</p>
+                    <p>🔴 Delivery: Seu gasto aumentou este mês!</p>
+                    <p>⚠️ Lazer: Próximo do limite mensal.</p>
+                </div>
+            </section>
+
+            <section class="linha2">
+                <div class="card">
+                    <h3>Histórico Mensal: Entradas x Saídas</h3>
+                </div>
+                <div class="coluna-direita">
+                <div class="card">
+                    <h3>Evolução de Gastos (OUT)</h3>
+                </div>
+                <div class="mini-cards">
+                    <div class="card">
+                    <h3>Meta de Gastos</h3>
+                    </div>
+                        <div class="card">
+                            <h3>Sugestões</h3>
+                            <p>
+                                Dica financeira: “Com economias, invista 150 no tesouro direto”.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="./src/script.js"></script>
+    </body>
 </html>

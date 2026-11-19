@@ -1,6 +1,18 @@
+:root {
+    --cor-fundo: #121212;
+    --cor-navbar: #1E1D1E;
+    --cor-fundo-cards: #202020;
+    --cor-link-ativo: #D4A72C;
+    --cor-texto: #F5F5F5;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
 .navbar {
-    background-color: gray;
-    color: gray;
+    background-color: var(--cor-navbar);
     width: 200px;
     height: 100vh;
     position: fixed;
@@ -11,19 +23,30 @@
 .navbar .navlinks {
     list-style: none;
     padding: 0;
-    margin: 40px;
+    margin: 40px 0px;
 }
 
 .navlinks a {
     display: block;
     text-decoration: none;
-    color: white;
-    padding: 10px 0;
+    padding: 10px 20px;
 }
 
+.tela {
+    display: none;
+}
+
+.tela.ativa {
+    display: block;
+}
+
+.navlinks a.ativa {
+    background-color: var(--cor-link-ativo);
+    border-radius: 15px;
+}
 
 .card {
-    background-color: #f0f0f0;
+    background-color: var(--cor-fundo-cards);
     padding: 15px;
     border-radius: 12px;
 }

@@ -14,14 +14,61 @@
             <li><a href="#financas" class="ativa">Finanças</a></li>
             <li><a href="#investimentos">Investimentos</a></li>
             <li><a href="#educacao">Educação</a></li>
-            <li><a href="#configuracoes">Configurações</a></li>
+            <li><a href="#configuracoes" class="configuracao">Configurações</a></li>
         </ul>
     </nav>
 
         <main>
 
             <section class="tela" id="inicio">
-                <h1>Ola, *****</h1>
+                <header class="topo">
+                    <h1>Ola, *****</h1>
+                    <span>🔔</span>
+                </header>
+
+                <div class="resumo-periodo">
+                    <div class="saldo-info">
+                        <p class="saldo-titulo">Seu saldo</p>
+                        <p class="saldo-valor">R$ ****,** <button>👁</button></p>
+                        <p><span class="positivo">↑ 8%</span> Em relação ao mês anterior</p>
+                    </div>
+                    <div class="saldo-grafico"></div>
+                </div>
+
+
+                <div class="card atalhos">
+                    <div class="atalho">
+                        <div class="atalho-icone">💰</div>
+                        <p>Movimentações</p>
+                    </div>
+                    <div class="atalho">
+                        <div class="atalho-icone">🎯</div>
+                        <p>Metas</p>
+                    </div>
+                    <div class="atalho">
+                        <div class="atalho-icone">💼</div>
+                        <p>Investimentos</p>
+                    </div>
+                    <div class="atalho">
+                        <div class="atalho-icone">🎓</div>
+                        <p>Educação Financeira</p>
+                    </div>
+                </div>
+                <div class="cards-baixo">
+                    <div class="card progresso">
+                        <p>Sua jornada de aprendizado</p>
+                        <a href="#educacao">Ver detalhes ></a>
+                        <div class="barra">
+                            <div class="barra-preenchida" style="width: 60%;"></div>
+                        </div>
+                        <span>60%</span>
+                        <p>Continue aprendendo sobre investimentos</p>
+                    </div>
+                    <div class="card dica-do-dia">
+                        <h4>Dica do dia</h4>
+                        <p>Comece com pequenos hábitos. Guardar um pouco todo mês já faz diferença!</p>
+                    </div>
+                </div>
             </section>
 
             <section class="tela" id="metas">
@@ -65,12 +112,11 @@
                         <div class="card">
                         <h3>Meta de Gastos</h3>
                         </div>
-                            <div class="card">
-                                <h3>Sugestões</h3>
-                                <p>
+                        <div class="card">
+                            <h3>Sugestões</h3>
+                            <p>
                                     Dica financeira: “Com economias, invista 150 no tesouro direto”.
-                                </p>
-                            </div>
+                            </p>
                         </div>
                     </div>
                 </section>
